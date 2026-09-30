@@ -1,9 +1,22 @@
 require('dotenv').config();
 const app = require('./src/app');
-const { initSchema } = require('./src/db/db');
+const { initSchema, db } = require('./src/db/db');
+const { seedDatabase } = require('./src/db/seed');
 
 // Ensure database tables exist
 initSchema();
+
+// Auto-seed if database is empty (e.g. fresh cloud deployment on Render)
+try {
+  const count = db.prepare('SELECT COUNT(*) as cnt FROM products').get()?.cnt || 0;
+  if (count === 0) {
+    console.log('Database empty on startup. Running initial seed...');
+    seedDatabase();
+  }
+} catch (e) {
+  console.log('Seeding initial database...');
+  seedDatabase();
+}
 
 const PORT = process.env.PORT || 5000;
 

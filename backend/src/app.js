@@ -44,9 +44,23 @@ app.use('/api/activity', activityRoutes);
 app.use('/api/feedback', feedbackRoutes);
 app.use('/api/admin', adminRoutes);
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ success: false, message: `Route not found: ${req.method} ${req.url}` });
+// Serve static frontend storefront files
+const path = require('path');
+const fs = require('fs');
+const rootDir = path.join(__dirname, '..', '..');
+
+app.use(express.static(rootDir, {
+  extensions: ['html', 'htm']
+}));
+
+// API 404 handler (matches any unmatched /api route)
+app.use('/api', (req, res) => {
+  res.status(404).json({ success: false, message: `API endpoint not found: ${req.method} ${req.originalUrl}` });
+});
+
+// Root route serves index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(rootDir, 'index.html'));
 });
 
 // Centralized error handler

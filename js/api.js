@@ -3,7 +3,11 @@
  * Connects frontend pages to the live Express.js REST API backend on http://localhost:5000
  */
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = (typeof window !== 'undefined' && window.location.port === '3000')
+  ? 'http://localhost:5000/api'
+  : (typeof window !== 'undefined' && window.location.origin)
+    ? `${window.location.origin}/api`
+    : 'http://localhost:5000/api';
 
 class ApiClient {
   constructor() {
