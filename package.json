@@ -2,9 +2,9 @@
   "name": "smart-recommendation-system",
   "version": "1.0.0",
   "description": "Smart Recommendation System for Personalized Content and Product Suggestions",
-  "main": "backend/server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "node index.js",
     "build": "npm --prefix backend install",
     "postinstall": "npm --prefix backend install",
     "dev": "serve .",
