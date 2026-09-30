@@ -1,0 +1,24 @@
+{
+  "name": "smart-recommendation-system",
+  "version": "1.0.0",
+  "description": "Smart Recommendation System for Personalized Content and Product Suggestions",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve .",
+    "start": "serve .",
+    "serve": "serve .",
+    "backend": "npm --prefix backend start",
+    "backend:dev": "npm --prefix backend run dev",
+    "seed": "npm --prefix backend run seed"
+  },
+  "keywords": [
+    "recommendation-system",
+    "personalized-content",
+    "ecommerce"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

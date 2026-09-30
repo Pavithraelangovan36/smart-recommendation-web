@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - SmartRecommend</title>
+  <meta name="description" content="View full specifications, customer reviews, verified pricing, and similar product recommendations.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-logo" href="index.html">
+        <i class="bi bi-cpu-fill"></i> SmartRecommend
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="content.html">Content</a></li>
+          <li class="nav-item"><a class="nav-link" href="recommendations.html">Recommendations</a></li>
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="wishlist.html">
+              Wishlist
+              <span class="badge rounded-pill bg-danger wishlist-counter-badge position-absolute top-0 start-100 translate-middle" style="display: none;">0</span>
+            </a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-3">
+          <a href="wishlist.html" class="btn btn-light rounded-circle position-relative p-2 border shadow-sm" title="Saved Wishlist">
+            <i class="bi bi-heart fs-6 text-dark"></i>
+            <span class="badge rounded-pill bg-danger wishlist-counter-badge position-absolute top-0 start-100 translate-middle" style="display: none;">0</span>
+          </a>
+          <div id="nav-auth-container"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Product Details Content -->
+  <main class="py-5">
+    <div class="container">
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb small">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="products.html">Products</a></li>
+          <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-product-name">Product Details</li>
+        </ol>
+      </nav>
+
+      <!-- Main Product Details Row (rendered via js/products.js) -->
+      <div class="row" id="product-details-container">
+        <div class="col-12 py-5 text-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading product details...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- You May Also Like (Similar Products) Section -->
+      <section class="mt-5 pt-5 border-top">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+          <div>
+            <span class="badge bg-primary-subtle text-primary border border-primary rounded-pill px-3 py-1 mb-2">
+              <i class="bi bi-magic me-1"></i> Category Alignment
+            </span>
+            <h3 class="fw-bold text-dark mb-1">You May Also Like</h3>
+            <p class="text-muted small mb-0">Similar items frequently explored by shoppers in this category.</p>
+          </div>
+          <a href="products.html" class="text-decoration-none fw-semibold text-primary">
+            Explore More <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+
+        <div class="row" id="similar-products-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container text-center">
+      <a class="navbar-brand-logo mb-3 d-inline-block text-white" href="index.html">
+        <i class="bi bi-cpu-fill text-primary"></i> SmartRecommend
+      </a>
+      <p class="small text-secondary mb-3">Personalized Product and Content Discovery Platform</p>
+      <div class="small text-secondary">&copy; 2026 SmartRecommend. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/recommendations.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

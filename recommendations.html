@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Personalized Recommendations - SmartRecommend</title>
+  <meta name="description" content="Explore your customized recommendation dashboard with explanations based on your selected interests, wishlist items, and recent browsing history.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-logo" href="index.html">
+        <i class="bi bi-cpu-fill"></i> SmartRecommend
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="content.html">Content</a></li>
+          <li class="nav-item"><a class="nav-link active" href="recommendations.html">Recommendations</a></li>
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="wishlist.html">
+              Wishlist
+              <span class="badge rounded-pill bg-danger wishlist-counter-badge position-absolute top-0 start-100 translate-middle" style="display: none;">0</span>
+            </a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-3">
+          <a href="wishlist.html" class="btn btn-light rounded-circle position-relative p-2 border shadow-sm" title="Saved Wishlist">
+            <i class="bi bi-heart fs-6 text-dark"></i>
+            <span class="badge rounded-pill bg-danger wishlist-counter-badge position-absolute top-0 start-100 translate-middle" style="display: none;">0</span>
+          </a>
+          <div id="nav-auth-container"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Personalized Header Banner -->
+  <header class="py-5 bg-white border-bottom">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-8">
+          <div class="d-inline-flex align-items-center gap-2 bg-primary-subtle text-primary border border-primary px-3 py-1 rounded-pill small fw-bold mb-3">
+            <i class="bi bi-stars"></i> Client-Side Recommendation Scoring Engine
+          </div>
+          <h1 class="fw-bold display-6 text-dark mb-2" id="rec-greeting-title">
+            Your Personalized Recommendations
+          </h1>
+          <p class="text-secondary fs-5 mb-3" id="rec-greeting-subtitle">
+            Welcome back! Here are tailored suggestions calculated using your interests, browsing activity, and wishlist signals.
+          </p>
+          <div class="d-flex flex-wrap align-items-center gap-2">
+            <span class="small fw-bold text-dark me-1"><i class="bi bi-tag-fill text-primary me-1"></i>Active Interests:</span>
+            <div id="active-interests-tags" class="d-inline-flex flex-wrap gap-1">
+              <!-- Rendered via JS -->
+            </div>
+            <a href="profile.html" class="btn btn-sm btn-outline-primary rounded-pill ms-2 px-3 py-1">
+              <i class="bi bi-pencil-square me-1"></i> Edit Interests
+            </a>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4 mt-4 mt-lg-0">
+          <div class="card border-0 shadow-sm rounded-4 p-3 bg-light">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-sliders text-primary fs-5"></i>
+              <strong class="text-dark small">Live Engine Scoring Formula</strong>
+            </div>
+            <ul class="list-unstyled small text-muted mb-0">
+              <li class="d-flex justify-content-between py-1 border-bottom"><span>Matching Interest</span> <span class="fw-bold text-success">+5 pts</span></li>
+              <li class="d-flex justify-content-between py-1 border-bottom"><span>Category Alignment</span> <span class="fw-bold text-primary">+4 pts</span></li>
+              <li class="d-flex justify-content-between py-1 border-bottom"><span>Wishlist Affinity</span> <span class="fw-bold text-info">+3 pts</span></li>
+              <li class="d-flex justify-content-between py-1 border-bottom"><span>Recently Viewed</span> <span class="fw-bold text-info">+3 pts</span></li>
+              <li class="d-flex justify-content-between py-1"><span>Rating &ge; 4.5★</span> <span class="fw-bold text-warning">+2 pts</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Recommendations Sections -->
+  <main class="py-5">
+    <div class="container">
+
+      <!-- Section 1: Based on Your Interests -->
+      <section class="mb-5 pb-4 border-bottom">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+          <div>
+            <span class="badge bg-primary-subtle text-primary border border-primary rounded-pill px-3 py-1 mb-2">
+              <i class="bi bi-heart-fill me-1"></i> Affinity Match
+            </span>
+            <h3 class="fw-bold text-dark mb-1">Based on Your Interests</h3>
+            <p class="text-muted small mb-0">Products matching your declared interest preferences.</p>
+          </div>
+          <a href="products.html" class="text-decoration-none fw-semibold text-primary">Browse All <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+        <div class="row" id="rec-interests-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+      <!-- Section 2: Because You Viewed -->
+      <section class="mb-5 pb-4 border-bottom">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+          <div>
+            <span class="badge bg-info-subtle text-info border border-info rounded-pill px-3 py-1 mb-2">
+              <i class="bi bi-eye-fill me-1"></i> Browsing History
+            </span>
+            <h3 class="fw-bold text-dark mb-1">Because You Viewed</h3>
+            <p class="text-muted small mb-0">Products closely related to your recently inspected items.</p>
+          </div>
+          <a href="products.html" class="text-decoration-none fw-semibold text-primary">Browse All <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+        <div class="row" id="rec-viewed-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+      <!-- Section 3: Similar to Your Wishlist -->
+      <section class="mb-5 pb-4 border-bottom">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+          <div>
+            <span class="badge bg-danger-subtle text-danger border border-danger rounded-pill px-3 py-1 mb-2">
+              <i class="bi bi-bookmark-heart-fill me-1"></i> Wishlist Complements
+            </span>
+            <h3 class="fw-bold text-dark mb-1">Similar to Your Wishlist</h3>
+            <p class="text-muted small mb-0">Items that complement what you have saved in your personal wishlist.</p>
+          </div>
+          <a href="wishlist.html" class="text-decoration-none fw-semibold text-primary">View Wishlist <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+        <div class="row" id="rec-wishlist-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+      <!-- Section 4: Recommended Content -->
+      <section class="mb-5 pb-4 border-bottom">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+          <div>
+            <span class="badge bg-success-subtle text-success border border-success rounded-pill px-3 py-1 mb-2">
+              <i class="bi bi-book-half me-1"></i> Editorial Picks
+            </span>
+            <h3 class="fw-bold text-dark mb-1">Recommended Articles & Guides</h3>
+            <p class="text-muted small mb-0">Articles and insights curated to match your curiosity and learning goals.</p>
+          </div>
+          <a href="content.html" class="text-decoration-none fw-semibold text-primary">Explore Articles <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+        <div class="row" id="rec-content-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+      <!-- Section 5: Trending Now -->
+      <section class="mb-5 pb-4 border-bottom">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+          <div>
+            <span class="badge bg-warning-subtle text-dark border border-warning rounded-pill px-3 py-1 mb-2">
+              <i class="bi bi-fire me-1 text-danger"></i> High Momentum
+            </span>
+            <h3 class="fw-bold text-dark mb-1">Trending Now Across Shoppers</h3>
+            <p class="text-muted small mb-0">The most popular and reviewed items across all categories this week.</p>
+          </div>
+          <a href="products.html" class="text-decoration-none fw-semibold text-primary">View Trends <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+        <div class="row" id="rec-trending-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+      <!-- Section 6: You May Also Like -->
+      <section class="mb-4">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+          <div>
+            <span class="badge bg-secondary-subtle text-secondary border rounded-pill px-3 py-1 mb-2">
+              <i class="bi bi-collection-play me-1"></i> Broad Curation
+            </span>
+            <h3 class="fw-bold text-dark mb-1">You May Also Like</h3>
+            <p class="text-muted small mb-0">High-scoring accessories and lifestyle discoveries.</p>
+          </div>
+        </div>
+        <div class="row" id="rec-alsolike-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container text-center">
+      <a class="navbar-brand-logo mb-3 d-inline-block text-white" href="index.html">
+        <i class="bi bi-cpu-fill text-primary"></i> SmartRecommend
+      </a>
+      <p class="small text-secondary mb-3">Personalized Product and Content Discovery Platform</p>
+      <div class="small text-secondary">&copy; 2026 SmartRecommend. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/recommendations.js"></script>
+
+  <!-- Render Recommendations Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = getStoredUser() || DEMO_USER;
+      const interests = recommendationEngine.getUserInterests();
+
+      // Update greeting and tags
+      const greetingTitle = document.getElementById("rec-greeting-title");
+      if (greetingTitle && user.name) {
+        greetingTitle.textContent = `Personalized for ${user.name}`;
+      }
+
+      const tagsContainer = document.getElementById("active-interests-tags");
+      if (tagsContainer) {
+        tagsContainer.innerHTML = interests.map(i => `
+          <span class="badge bg-light text-primary border rounded-pill px-3 py-1">${i}</span>
+        `).join("");
+      }
+
+      // 1. Based on Interests
+      const interestGrid = document.getElementById("rec-interests-grid");
+      if (interestGrid) {
+        const items = recommendationEngine.getByInterests(4);
+        interestGrid.innerHTML = items.map(item => createProductCardHTML(item.product, item.explanation)).join("");
+      }
+
+      // 2. Because You Viewed
+      const viewedGrid = document.getElementById("rec-viewed-grid");
+      if (viewedGrid) {
+        const items = recommendationEngine.getSimilarToRecentlyViewed(4);
+        viewedGrid.innerHTML = items.map(item => createProductCardHTML(item.product, item.explanation)).join("");
+      }
+
+      // 3. Similar to Wishlist
+      const wishlistGrid = document.getElementById("rec-wishlist-grid");
+      if (wishlistGrid) {
+        const items = recommendationEngine.getSimilarToWishlist(4);
+        wishlistGrid.innerHTML = items.map(item => createProductCardHTML(item.product, item.explanation)).join("");
+      }
+
+      // 4. Recommended Content
+      const contentGrid = document.getElementById("rec-content-grid");
+      if (contentGrid) {
+        const articles = recommendationEngine.getRecommendedContent(3);
+        contentGrid.innerHTML = articles.map(a => createContentCardHTML(a.article)).join("");
+      }
+
+      // 5. Trending Now
+      const trendingGrid = document.getElementById("rec-trending-grid");
+      if (trendingGrid) {
+        const items = recommendationEngine.getTrendingProducts(4);
+        trendingGrid.innerHTML = items.map(item => createProductCardHTML(item.product, item.explanation)).join("");
+      }
+
+      // 6. You May Also Like
+      const alsolikeGrid = document.getElementById("rec-alsolike-grid");
+      if (alsolikeGrid) {
+        const allTop = recommendationEngine.getTopRecommendations(8);
+        alsolikeGrid.innerHTML = allTop.slice(4, 8).map(item => createProductCardHTML(item.product, item.explanation)).join("");
+      }
+    });
+  </script>
+</body>
+</html>

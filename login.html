@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - SmartRecommend</title>
+  <meta name="description" content="Sign into your SmartRecommend account to access personalized product recommendations and saved wishlist items.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <!-- Simple Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-logo" href="index.html">
+        <i class="bi bi-cpu-fill"></i> SmartRecommend
+      </a>
+      <div class="ms-auto d-flex align-items-center gap-2">
+        <a href="index.html" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+          <i class="bi bi-arrow-left me-1"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Form Section -->
+  <main class="py-5">
+    <div class="container py-4">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-5">
+          <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 bg-white">
+            <div class="text-center mb-4">
+              <div class="rounded-circle bg-primary-subtle text-primary mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px;">
+                <i class="bi bi-person-fill fs-3"></i>
+              </div>
+              <h3 class="fw-bold text-dark">Welcome Back</h3>
+              <p class="text-muted small">Sign in to view your personalized recommendations.</p>
+            </div>
+
+            <!-- Error Banner -->
+            <div id="login-error" class="alert alert-danger d-none py-2 small" role="alert"></div>
+
+            <form id="login-form" onsubmit="return handleUserLogin(event)">
+              <div class="mb-3">
+                <label for="login-email" class="form-label fw-semibold small text-dark">Email Address</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-envelope"></i></span>
+                  <input type="email" class="form-control border-start-0" id="login-email" placeholder="name@example.com" required value="alex@example.com">
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <label for="login-password" class="form-label fw-semibold small text-dark mb-0">Password</label>
+                  <a href="javascript:void(0)" onclick="showToast('Password reset link sent to your email (Demo)!', 'info')" class="small text-primary text-decoration-none">Forgot Password?</a>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-lock"></i></span>
+                  <input type="password" class="form-control border-start-0" id="login-password" placeholder="••••••••" required value="demo123">
+                </div>
+              </div>
+
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="remember-me" checked>
+                <label class="form-check-label small text-muted" for="remember-me">
+                  Remember me on this browser
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100 py-2 rounded-pill fw-semibold shadow-sm mb-3">
+                Sign In
+              </button>
+            </form>
+
+            <div class="position-relative text-center my-3">
+              <hr class="text-muted">
+              <span class="position-absolute top-50 start-50 translate-middle bg-white px-3 small text-muted fw-medium">OR TEST DRIVE</span>
+            </div>
+
+            <!-- 1-Click Demo Login -->
+            <button type="button" class="btn btn-outline-success w-100 py-2 rounded-pill fw-bold d-flex align-items-center justify-content-center gap-2 mb-4" onclick="loginAsDemoUser()">
+              <i class="bi bi-lightning-charge-fill text-warning"></i> Continue as Demo User (Alex)
+            </button>
+
+            <div class="text-center small text-muted">
+              Don't have an account? 
+              <a href="register.html" class="fw-bold text-primary text-decoration-none ms-1">Create Account</a>
+            </div>
+
+            <div class="text-center mt-3 pt-3 border-top small">
+              <a href="admin-login.html" class="text-muted text-decoration-none">
+                <i class="bi bi-shield-lock me-1"></i> Switch to Admin Login
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

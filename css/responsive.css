@@ -1,0 +1,122 @@
+/**
+ * SMART RECOMMENDATION SYSTEM - Responsive Stylesheet
+ * Handles viewport scaling, touch-friendly elements, mobile drawer navigation,
+ * and adaptive grids across desktop, tablet, and mobile screens.
+ */
+
+/* Large Tablets & Small Laptops (<= 991px) */
+@media (max-width: 991.98px) {
+  .hero-title {
+    font-size: 2.75rem;
+  }
+
+  .hero-section {
+    padding: 3.5rem 0 4rem 0;
+  }
+
+  .hero-visual-card {
+    margin-top: 2rem;
+  }
+
+  .hero-stat-floating {
+    position: static;
+    margin-top: 1rem;
+    animation: none;
+  }
+
+  /* Product details layout adjustment */
+  .product-info-wrap {
+    padding-left: 0 !important;
+    margin-top: 1.5rem;
+  }
+
+  /* Filters sidebar behavior */
+  .filters-sidebar {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+  }
+}
+
+/* Tablets & Mobile Screens (<= 767px) */
+@media (max-width: 767.98px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .search-bar-wrap {
+    padding: 0.3rem 0.5rem 0.3rem 1rem;
+  }
+
+  .search-bar-wrap input {
+    font-size: 0.95rem;
+  }
+
+  /* Product Card Grid */
+  .product-img-wrap {
+    height: 190px;
+  }
+
+  .product-title {
+    font-size: 0.92rem;
+    height: 2.5rem;
+  }
+
+  /* Compact button paddings */
+  .btn-lg {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 1rem !important;
+  }
+
+  .step-card {
+    padding: 1.75rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .site-footer {
+    padding: 3rem 0 1.5rem 0;
+    text-align: center;
+  }
+
+  .footer-social-icon {
+    margin: 0 auto;
+  }
+}
+
+/* Compact Mobile Screens (<= 480px & 375px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .navbar-brand-logo {
+    font-size: 1.2rem;
+  }
+
+  .action-buttons-wrap {
+    flex-direction: column;
+  }
+
+  .action-buttons-wrap .btn {
+    width: 100%;
+  }
+
+  .product-img-wrap {
+    height: 170px;
+  }
+
+  .recommendation-badge {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .custom-toast {
+    min-width: 280px;
+    margin: 0 0.5rem 0.5rem 0.5rem;
+  }
+}

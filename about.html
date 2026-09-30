@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Smart Recommendation System</title>
+  <meta name="description" content="Learn how SmartRecommend bridges digital marketing, content personalization, and behavioral scoring in an innovative frontend architecture.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-logo" href="index.html">
+        <i class="bi bi-cpu-fill"></i> SmartRecommend
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="content.html">Content</a></li>
+          <li class="nav-item"><a class="nav-link" href="recommendations.html">Recommendations</a></li>
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="wishlist.html">
+              Wishlist
+              <span class="badge rounded-pill bg-danger wishlist-counter-badge position-absolute top-0 start-100 translate-middle" style="display: none;">0</span>
+            </a>
+          </li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-3">
+          <a href="wishlist.html" class="btn btn-light rounded-circle position-relative p-2 border shadow-sm" title="Saved Wishlist">
+            <i class="bi bi-heart fs-6 text-dark"></i>
+            <span class="badge rounded-pill bg-danger wishlist-counter-badge position-absolute top-0 start-100 translate-middle" style="display: none;">0</span>
+          </a>
+          <div id="nav-auth-container"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="py-5 bg-white border-bottom">
+    <div class="container text-center max-w-700 mx-auto">
+      <span class="badge bg-primary-subtle text-primary border border-primary rounded-pill px-3 py-1 mb-2">
+        <i class="bi bi-info-circle me-1"></i> Project Mission
+      </span>
+      <h1 class="fw-bold display-5 text-dark mb-3">About SmartRecommend</h1>
+      <p class="text-secondary fs-5 mb-0">
+        Empowering modern digital marketing with explainable, privacy-first personalization that bridges commerce and educational content.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="py-5">
+    <div class="container">
+      
+      <!-- Core Purpose -->
+      <section class="row align-items-center mb-5 pb-4">
+        <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+          <h2 class="fw-bold text-dark display-6 mb-3">Our Core Purpose</h2>
+          <p class="text-secondary leading-relaxed mb-3">
+            In traditional digital marketing, storefronts display identical product catalogs to every visitor regardless of their background or current intent. This results in high friction, cognitive fatigue, and low conversion rates.
+          </p>
+          <p class="text-secondary leading-relaxed mb-4">
+            <strong>SmartRecommend</strong> reimagines this paradigm by simulating how modern e-commerce giants use multi-signal interaction matrices to curate products and knowledge articles in real time. By prioritizing voluntary user interest declaration and transparent rationales, shoppers discover exactly what they need faster.
+          </p>
+          <div class="d-flex gap-3">
+            <a href="products.html" class="btn btn-primary rounded-pill px-4 py-2">Explore Catalog</a>
+            <a href="recommendations.html" class="btn btn-outline-primary rounded-pill px-4 py-2">View Recommendations</a>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="Team analyzing marketing analytics" class="img-fluid object-fit-cover" style="height: 380px;">
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Platform Features -->
+      <section class="py-5 bg-white rounded-4 shadow-sm p-4 p-md-5 mb-5 border">
+        <div class="text-center mb-5 max-w-600 mx-auto">
+          <span class="text-primary fw-bold text-uppercase small">Comprehensive Capabilities</span>
+          <h2 class="fw-bold text-dark">Key Platform Features</h2>
+          <p class="text-muted small">Everything required to simulate an end-to-end digital marketing recommendation portal.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="rounded-3 bg-primary-subtle text-primary p-3 fs-4">
+                <i class="bi bi-stars"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-1">Explainable Personalization</h5>
+                <p class="text-muted small mb-0">Transparent reason badges explain why every item was recommended ("Because you viewed...", "Matches your interest in...").</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="rounded-3 bg-success-subtle text-success p-3 fs-4">
+                <i class="bi bi-funnel"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-1">Dynamic Filtering & Search</h5>
+                <p class="text-muted small mb-0">Multi-axis faceted filtering by category, price tier, and minimum star rating without page refreshes.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="rounded-3 bg-info-subtle text-info p-3 fs-4">
+                <i class="bi bi-journal-richtext"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-1">Content Marketing Library</h5>
+                <p class="text-muted small mb-0">Educational blogs on e-commerce, tech trends, and lifestyle tips coupled with in-article ratings.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="rounded-3 bg-danger-subtle text-danger p-3 fs-4">
+                <i class="bi bi-heart"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-1">Wishlist & View Tracking</h5>
+                <p class="text-muted small mb-0">Session-based persistence tracks inspected items to dynamically boost relevant category weights.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="rounded-3 bg-warning-subtle text-warning p-3 fs-4">
+                <i class="bi bi-chat-heart"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-1">User Feedback Loop</h5>
+                <p class="text-muted small mb-0">Interactive 5-star customer reviews feed into administrative moderation boards.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="rounded-3 bg-primary-subtle text-primary p-3 fs-4">
+                <i class="bi bi-speedometer2"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-1">Administrative Analytics</h5>
+                <p class="text-muted small mb-0">Rich Chart.js telemetry dashboards for tracking user growth, category distribution, and recommendation CTR.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Architecture Breakdown -->
+      <section class="py-4">
+        <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-dark text-white">
+          <div class="row align-items-center">
+            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
+              <span class="badge bg-primary text-white rounded-pill px-3 py-1 mb-2">Technical Implementation</span>
+              <h3 class="fw-bold mb-3">Pure Frontend Architecture</h3>
+              <p class="text-light text-opacity-75 small mb-3">
+                This project demonstrates sophisticated engineering using pure frontend web standards:
+              </p>
+              <ul class="text-light text-opacity-75 small mb-0">
+                <li class="mb-2"><strong>Zero Backend Dependency:</strong> Runs directly inside modern web browsers with no external server or API requirements.</li>
+                <li class="mb-2"><strong>Client-Side Scoring Algorithm:</strong> Linear ranking function computes relevance scores on the fly.</li>
+                <li class="mb-2"><strong>LocalStorage State Engine:</strong> Safely stores user profile, sessions, wishlist items, and review feedback.</li>
+                <li><strong>Responsive Grid & Mobile Touch:</strong> Crafted for seamless interaction on mobile, tablet, and widescreen desktop displays.</li>
+              </ul>
+            </div>
+            <div class="col-12 col-lg-5 text-center">
+              <div class="p-4 bg-dark-subtle rounded-3 border border-secondary border-opacity-25">
+                <div class="fs-4 fw-bold text-white mb-2">College Project Ready</div>
+                <p class="text-muted small mb-3">Demonstrates software design principles, UI/UX aesthetics, and recommendation logic.</p>
+                <a href="admin-login.html" class="btn btn-outline-light btn-sm rounded-pill px-4">
+                  <i class="bi bi-shield-lock me-1"></i> Explore Admin Portal
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container text-center">
+      <a class="navbar-brand-logo mb-3 d-inline-block text-white" href="index.html">
+        <i class="bi bi-cpu-fill text-primary"></i> SmartRecommend
+      </a>
+      <p class="small text-secondary mb-3">Personalized Product and Content Discovery Platform</p>
+      <div class="small text-secondary">&copy; 2026 SmartRecommend. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

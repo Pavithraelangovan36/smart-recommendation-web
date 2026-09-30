@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account - SmartRecommend</title>
+  <meta name="description" content="Register an account on SmartRecommend to customize your product interests and unlock real-time personalized recommendations.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <!-- Simple Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-logo" href="index.html">
+        <i class="bi bi-cpu-fill"></i> SmartRecommend
+      </a>
+      <div class="ms-auto d-flex align-items-center gap-2">
+        <a href="login.html" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+          Already registered? Sign In
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Register Form Section -->
+  <main class="py-5">
+    <div class="container py-3">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-9 col-lg-7">
+          <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 bg-white">
+            <div class="text-center mb-4">
+              <div class="rounded-circle bg-primary-subtle text-primary mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px;">
+                <i class="bi bi-person-plus-fill fs-3"></i>
+              </div>
+              <h3 class="fw-bold text-dark">Create Your Account</h3>
+              <p class="text-muted small">Select your interests below to jumpstart your smart recommendations.</p>
+            </div>
+
+            <!-- Error Banner -->
+            <div id="auth-error-alert" class="alert alert-danger d-none py-2 small" role="alert"></div>
+
+            <form id="register-form" onsubmit="return handleUserRegister(event)">
+              <div class="row g-3">
+                <div class="col-12 col-sm-6">
+                  <label for="reg-name" class="form-label fw-semibold small text-dark">Full Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="reg-name" placeholder="John Doe" required>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label for="reg-email" class="form-label fw-semibold small text-dark">Email Address <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" id="reg-email" placeholder="john@example.com" required>
+                </div>
+
+                <div class="col-12 col-sm-6">
+                  <label for="reg-password" class="form-label fw-semibold small text-dark">Password <span class="text-danger">*</span></label>
+                  <input type="password" class="form-control" id="reg-password" placeholder="At least 6 characters" required>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label for="reg-confirm-password" class="form-label fw-semibold small text-dark">Confirm Password <span class="text-danger">*</span></label>
+                  <input type="password" class="form-control" id="reg-confirm-password" placeholder="Confirm your password" required>
+                </div>
+
+                <div class="col-12 col-sm-6">
+                  <label for="reg-age" class="form-label fw-semibold small text-dark">Age</label>
+                  <input type="number" class="form-control" id="reg-age" placeholder="25" min="13" max="100" value="25">
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label for="reg-location" class="form-label fw-semibold small text-dark">City / Location</label>
+                  <input type="text" class="form-control" id="reg-location" placeholder="e.g. Mumbai, India" value="Bangalore, India">
+                </div>
+
+                <!-- Interests Selection -->
+                <div class="col-12 mt-4">
+                  <label class="form-label fw-bold text-dark d-block mb-1">
+                    Select Your Interests <span class="text-danger">*</span>
+                  </label>
+                  <small class="text-muted d-block mb-3">Our recommendation engine matches product categories with these choices.</small>
+
+                  <div class="row row-cols-2 row-cols-sm-4 g-2" id="interest-selection-grid">
+                    <div class="col">
+                      <div class="p-2 border rounded-3 text-center bg-light">
+                        <input class="form-check-input" type="checkbox" name="interests" value="Technology" id="int-tech" checked>
+                        <label class="form-check-label d-block small fw-semibold cursor-pointer mt-1" for="int-tech">
+                          <i class="bi bi-laptop d-block fs-5 text-primary mb-1"></i> Technology
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="p-2 border rounded-3 text-center bg-light">
+                        <input class="form-check-input" type="checkbox" name="interests" value="Fashion" id="int-fashion">
+                        <label class="form-check-label d-block small fw-semibold cursor-pointer mt-1" for="int-fashion">
+                          <i class="bi bi-bag d-block fs-5 text-primary mb-1"></i> Fashion
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="p-2 border rounded-3 text-center bg-light">
+                        <input class="form-check-input" type="checkbox" name="interests" value="Books" id="int-books" checked>
+                        <label class="form-check-label d-block small fw-semibold cursor-pointer mt-1" for="int-books">
+                          <i class="bi bi-book d-block fs-5 text-primary mb-1"></i> Books
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="p-2 border rounded-3 text-center bg-light">
+                        <input class="form-check-input" type="checkbox" name="interests" value="Beauty" id="int-beauty">
+                        <label class="form-check-label d-block small fw-semibold cursor-pointer mt-1" for="int-beauty">
+                          <i class="bi bi-stars d-block fs-5 text-primary mb-1"></i> Beauty
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="p-2 border rounded-3 text-center bg-light">
+                        <input class="form-check-input" type="checkbox" name="interests" value="Sports" id="int-sports">
+                        <label class="form-check-label d-block small fw-semibold cursor-pointer mt-1" for="int-sports">
+                          <i class="bi bi-trophy d-block fs-5 text-primary mb-1"></i> Sports
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="p-2 border rounded-3 text-center bg-light">
+                        <input class="form-check-input" type="checkbox" name="interests" value="Travel" id="int-travel" checked>
+                        <label class="form-check-label d-block small fw-semibold cursor-pointer mt-1" for="int-travel">
+                          <i class="bi bi-compass d-block fs-5 text-primary mb-1"></i> Travel
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="p-2 border rounded-3 text-center bg-light">
+                        <input class="form-check-input" type="checkbox" name="interests" value="Food" id="int-food">
+                        <label class="form-check-label d-block small fw-semibold cursor-pointer mt-1" for="int-food">
+                          <i class="bi bi-cup-hot d-block fs-5 text-primary mb-1"></i> Food
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="p-2 border rounded-3 text-center bg-light">
+                        <input class="form-check-input" type="checkbox" name="interests" value="Lifestyle" id="int-lifestyle">
+                        <label class="form-check-label d-block small fw-semibold cursor-pointer mt-1" for="int-lifestyle">
+                          <i class="bi bi-house-heart d-block fs-5 text-primary mb-1"></i> Lifestyle
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                  <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow">
+                    Create Account & Personalize
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div class="text-center mt-4 pt-3 border-top small text-muted">
+              Already have an account? 
+              <a href="login.html" class="fw-bold text-primary text-decoration-none ms-1">Sign In</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
